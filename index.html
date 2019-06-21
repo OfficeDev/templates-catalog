@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>JSON Test</title>
+</head>
+<body>
+	<div id="myData"></div>
+	<p id="log"></p>
+    <script>
+		let length;
+		let open = -1;
+		let d;
+        fetch('./templates.json')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                appendData(data);
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
+        function appendData(data) {
+			d = data;
+			length = data.length;
+			var mainContainer = document.getElementById("myData");
+            for (var i = 0; i < length; i++) {
+				var div = document.createElement("div");
+				div.id = 'div' + i;
+				div.innerHTML = 'Name: ' + data[i].name + '<br>';
+				div.setAttribute("onclick", "clicked(" + div.id +")");
+				div.style.fontSize = "25px";
+                mainContainer.appendChild(div);
+			}
+			//let log = document.getElementById("div1");
+			//log.innerHTML = 'asdf';
+		}
+
+		/*for (var i = 0; i < length; i++) {
+			var l = document.getElementById("div" + i);
+			l.onclick = clicked;
+		}*/
+
+		
+		function clicked(e) {
+			let id = e.id;
+			let log = document.getElementById(id);
+			id = id.substring(3);
+
+			if (log.innerHTML === JSON.stringify(d[id])) {
+				log.innerHTML = 'Name: ' + d[id].name + '<br>';
+				open = -1;
+			} else {
+				log.innerHTML = JSON.stringify(d[id]);
+				if (open !== -1) {
+					let doc = document.getElementById('div'+ open);
+					doc.innerHTML = 'Name: ' + d[open].name + '<br>';
+				}
+				open = id;
+			}
+		}
+    </script>
+</body>
+</html>

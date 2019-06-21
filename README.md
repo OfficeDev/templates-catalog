@@ -1,3 +1,42 @@
+# How To
+## Get the Repository in your Local Working Directory
+You need to clone the repo using git before you can use the templates or push your own.
+You'll then need to use npm to get the project ready.
+
+Run these commands:
+```bash
+$ git clone https://github.com/dsam7/InternshipWorkspace.git
+$ cd create-project
+$ npm install
+$ npm link
+```
+
+## Submitting Your Template to the Repository
+Make sure you have a working project. We suggest having it as an npm package.
+
+You'll need to add your project in a separate branch so it can be verified before being pushed to master.
+
+To do this:
+
+```bash
+$ git branch *your-project-name*
+$ git checkout *your-project-name*
+```
+
+Once your project is ready for submission, make sure you are in the root directory (with the templates.json file) and run these commands:
+```bash
+$ create-project 
+```
+This will edit the templates.json file with the information from your new project. This is the file that gets committed to the repository.
+
+To finish your submission:
+
+```bash
+$ git add templates.json
+$ git commit -m "*leave a message about your project*"
+$ git push
+```
+Now your project will be reviewed and if accepted, it will make its way onto the repository!
 
 # Contributing
 
