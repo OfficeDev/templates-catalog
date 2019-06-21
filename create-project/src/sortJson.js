@@ -33,19 +33,6 @@ export function addProjectInfo(name, version, author, npm, repository, tag) {
 		"repository": repository,
 		"tag": tag
         };
-
-    /*json.push(
-        {
-		"name": name,
-		"npm": npm,
-		"repository": repository,
-		"tag": tag
-        });
-        
-    
-    json.sort(function(a,b) {
-        return compareStrings(a.name,b.name);
-    });*/
     
     //Add new project using Insertion Sort
     for (let i = json.length - 1; i >= 0; i--) {

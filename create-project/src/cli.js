@@ -1,6 +1,6 @@
 import inquirer from 'inquirer';
 import { addProjectInfo } from './sortJson';
-import { go } from './search';
+import { runSearch } from './search';
 
 /**
  * Prompt the user with questions about the project they are trying to push to the Catalog
@@ -85,7 +85,7 @@ async function promptUser() {
     let action = await inquirer.prompt(question);
 
     if (action.action === 'Search') {
-      go();
+      runSearch();
     } else {
       let answers = await promptUser();
     

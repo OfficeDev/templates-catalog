@@ -2,7 +2,11 @@ import inquirer from 'inquirer';
 const fs = require('fs');
 const file = './templates.json';
 
-export async function go() {
+/**
+ * Prompt the user with questions to run a search through the Catalog
+ * Calls search, prints results, and runs the search up to two times.
+ */
+export async function runSearch() {
     let json = fs.readFileSync(file, function read(err, data) {
       if (err) throw err;
     });
@@ -23,11 +27,8 @@ export async function go() {
             message: 'What are you searching for?'
         }
     ];
-    let answers = await inquirer.prompt(questions);
     
-    //let param = readline.question("What paramter would you like to search by?\n");
-    //let input = readline.question("What are you searching for?\n");
-    
+    let answers = await inquirer.prompt(questions); 
     let results = [];
     results = await search(json, answers.input, answers.param);
 
@@ -45,14 +46,24 @@ export async function go() {
     }
   }
 
+/**
+ * Make sure user inputs are valid and run a search through a json file
+ * @param json file to search in 
+ * @param input what the user is searching for
+ * @param param parameter/catagory to search from 
+ */  
 async function search(json, input, param) {
     input = input.toLowerCase();
     param = param.toLowerCase();
     let temp = [];
+    let catalogEntry;
     for (let i = 0; i < json.length; i++) {
-        let a = json[i][param];
-        if (a.toLowerCase().indexOf(input) > -1) {
-            temp.push(json[i]);
+        if (json[i][param]) {
+            catalogEntry = json[i][param];
+            //if a match is found
+            if (catalogEntry.toLowerCase().indexOf(input) > -1) {
+                temp.push(json[i]);
+            }
         }
     }
     return temp;
