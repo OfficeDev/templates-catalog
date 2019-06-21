@@ -5,7 +5,7 @@ You'll then need to use npm to get the project ready.
 
 Run these commands:
 ```bash
-$ git clone https://github.com/dsam7/InternshipWorkspace.git
+$ git clone https://github.com/OfficeDev/templates-catalog.git
 $ cd create-project
 $ npm install
 $ npm link
