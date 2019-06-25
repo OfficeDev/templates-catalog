@@ -1,5 +1,5 @@
-import inquirer from 'inquirer';
-const fs = require('fs');
+import inquirer = require('inquirer');
+import * as fs from "fs";
 const file = './templates.json';
 
 /**
@@ -7,13 +7,11 @@ const file = './templates.json';
  * Calls search, prints results, and runs the search up to two times.
  */
 export async function runSearch() {
-    let json = fs.readFileSync(file, function read(err, data) {
-      if (err) throw err;
-    });
+    let json : any = fs.readFileSync(file);
   
     json = JSON.parse(json);
   
-    let questions = 
+    let questions : any = 
     [
         {
             type: 'list',
@@ -28,14 +26,14 @@ export async function runSearch() {
         }
     ];
     
-    let answers = await inquirer.prompt(questions); 
-    let results = [];
+    let answers : any = await inquirer.prompt(questions); 
+    let results : any = [];
     results = await search(json, answers.input, answers.param);
 
     console.log("Here are your search results:");
     console.log(results);
 
-    let further = await inquirer.prompt({ type: 'list', name: 'response', 'message': 'Would you like to further search through these results?', choices: ['Yes', 'No']});
+    let further : any = await inquirer.prompt({ type: 'list', name: 'response', 'message': 'Would you like to further search through these results?', choices: ['Yes', 'No']});
     
     if (further.response == 'Yes') {
         console.log('here');

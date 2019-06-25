@@ -104,6 +104,14 @@
 		"tag": "C#"
 	},
 	{
+		"name": "Yo-Office",
+		"version": "6.0.0",
+		"author": "office",
+		"npm": "generator-office",
+		"repository": "github.com/OfficeDev/generator-office",
+		"tag": "TypeScript"
+	},
+	{
 		"name": "zoo",
 		"npm": "zbo",
 		"repository": "z",

@@ -1,4 +1,4 @@
-import inquirer from 'inquirer';
+import inquirer = require('inquirer');
 import { addProjectInfo } from './sortJson';
 import { runSearch } from './search';
 
@@ -6,7 +6,7 @@ import { runSearch } from './search';
  * Prompt the user with questions about the project they are trying to push to the Catalog
  * @return project info formatted to templates.json standard
  */
-async function promptUser() {
+async function promptUser() : Promise<any> {
     const defaultTemplate = 'MyOfficeTemplate';
     const questions = [];
 
@@ -55,7 +55,7 @@ async function promptUser() {
     });
     
 
-    const answers = await inquirer.prompt(questions);
+    const answers : any = await inquirer.prompt(questions);
 
     return {
       template: answers.template,
@@ -75,14 +75,14 @@ async function promptUser() {
    export async function cli(args) {
     let outputFile = 'projects.json';
 
-    let question = 
+    let question : any = 
     {
       type: 'list',
       name: 'action',
       message: 'What would you like to use the Community Templates Catalog for?',
       choices: ['Search', "Publish"]
     }
-    let action = await inquirer.prompt(question);
+    let action : any = await inquirer.prompt(question);
 
     if (action.action === 'Search') {
       runSearch();
