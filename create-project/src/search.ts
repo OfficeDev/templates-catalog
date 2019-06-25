@@ -50,7 +50,7 @@ export async function runSearch() {
  * @param input what the user is searching for
  * @param param parameter/catagory to search from 
  */  
-async function search(json, input, param) {
+export function search(json, input, param) {
     input = input.toLowerCase();
     param = param.toLowerCase();
     let temp = [];

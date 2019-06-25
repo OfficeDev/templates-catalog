@@ -6,7 +6,7 @@ const file = './templates.json';
  * @param a string 1
  * @param b string 2 
  */
-function compareStrings(a, b) {
+export function compareStrings(a, b) {
     a = a.toLowerCase();
     b = b.toLowerCase();
     return a < b ? -1 : a > b ? 1 : 0;

@@ -10,7 +10,7 @@
     "access": "public"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --timeout 0 -r ts-node/register ./test/**.ts"
   },
   "keywords": [
     "cli",
@@ -25,9 +25,9 @@
     "inquirer": "^6.3.1"
   },
   "devDependencies": {
+    "@types/inquirer": "^6.0.3",
     "@types/mocha": "^5.2.7",
     "@types/node": "^12.0.8",
-    "@types/inquirer": "^6.0.3",
     "mocha": "^5.2.0",
     "ts-node": "^8.3.0",
     "typescript": "^3.5.2"
