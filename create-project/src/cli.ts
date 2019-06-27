@@ -11,38 +11,30 @@ async function promptUser() : Promise<any> {
     const questions = [];
 
     questions.push({
-      type: String,
       name: 'template',
-      message: 'What is the name of your project?\n',
-      default: defaultTemplate,
+      message: 'What is the name of your project?',
+      default: defaultTemplate
     });
 
     questions.push({
-      type: String,
       name: 'version',
-      message: 'Version?\n',
+      message: 'Version?',
       default: '0.0.1',
     });
     
     questions.push({
-      type: String,
       name: 'author',
-      message: 'Author name?\n',
-      default: '',
+      message: 'Author name?'
     });
 
     questions.push({
-      type: String,
       name: 'git',
-      message: 'Please provide a link to your repository if possible (eg. GitHub, BitBucket, etc.)\n',
-      default: '',
+      message: 'Please provide a link to your repository if possible (eg. GitHub, BitBucket, etc.)'
     });
   
     questions.push({
-      type: String,
       name: 'npm',
-      message: 'NPM Link?\n',
-      default: '',
+      message: 'NPM Link?'
     });
     
     //Providing a few choices for now but will eventually have a standardized list of tags to choose from
@@ -54,7 +46,6 @@ async function promptUser() : Promise<any> {
       default: 'JavaScript'
     });
     
-
     const answers : any = await inquirer.prompt(questions);
 
     return {
@@ -73,8 +64,7 @@ async function promptUser() : Promise<any> {
     * @param args command line arguments
     */
    export async function cli(args) {
-    let outputFile = 'projects.json';
-
+     
     let question : any = 
     {
       type: 'list',
@@ -94,5 +84,4 @@ async function promptUser() : Promise<any> {
 
       addProjectInfo(answers.template, answers.version, answers.author, answers.npm, answers.git, answers.tag);
     }
-    console.log("Thank you for using the Community Templates Catalog!");
   }

@@ -20,7 +20,6 @@ export async function runSearch() {
             choices: ['Name', 'Author', 'NPM', 'Repository', 'Tag']
         },
         {
-            type: String,
             name: 'input',
             message: 'What are you searching for?'
         }
@@ -36,7 +35,6 @@ export async function runSearch() {
     let further : any = await inquirer.prompt({ type: 'list', name: 'response', 'message': 'Would you like to further search through these results?', choices: ['Yes', 'No']});
     
     if (further.response == 'Yes') {
-        console.log('here');
         answers = await inquirer.prompt(questions);
         results = await search(results, answers.input.toLowerCase(), answers.param.toLowerCase());
         console.log("Here are your search results:");
