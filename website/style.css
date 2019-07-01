@@ -1,0 +1,59 @@
+body {
+    font-family: Helvetica;
+  }
+  
+header {
+    text-align: center;
+    font-size: 36px;
+    text-decoration: underline;
+    padding: 40px;
+}
+
+  ul {
+    list-style-type: none;
+    line-height: 0px;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  sup {
+    vertical-align: baseline;
+    position: relative;
+    top: -0.4em;
+    color: red;
+  }
+  
+  div.templates {
+    display: none;
+  }
+  
+  div.title {
+    float: center;
+    overflow: auto;
+    font-size: 22px;
+    line-height: 24px;
+  }
+  
+  div.amount {
+    float: right;
+    overflow: auto;
+    color: #37b;
+  }
+  
+  div.description {
+    overflow: auto;
+    font-size: .75em;
+    color: gray;
+    line-height: normal;
+    font-weight: bold;
+  }
+  
+  .row1,
+  .row2 {
+    clear: both;
+  }
+  li {
+    padding: 40px 15px;
+    display: inline-table;
+  }

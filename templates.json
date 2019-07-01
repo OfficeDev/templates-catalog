@@ -60,7 +60,7 @@
 	{
 		"name": "Office-Addin-TaskPane-JS",
 		"npm": "",
-		"repository": "https://github.com/OfficeDev/Office-Addin-TaskPane-JS",
+		"repository": "github.com/OfficeDev/Office-Addin-TaskPane-JS",
 		"tag": "Office-Addin"
 	},
 	{
