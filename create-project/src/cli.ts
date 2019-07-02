@@ -40,7 +40,7 @@ async function runPublish(): Promise<any> {
 
   questions.push({
     name: 'npm',
-    message: 'NPM Link?'
+    message: 'NPM name? (Only provide what you would type after "npm i" if you were trying to install)'
   });
 
   // Providing a few choices for now but will eventually have a standardized list of tags to choose from
