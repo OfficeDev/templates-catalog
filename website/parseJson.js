@@ -1,4 +1,4 @@
-const file = 'https://raw.githubusercontent.com/OfficeDev/templates-catalog/master/templates.json?token=ADD4CN6TARWYJULWI36RFC25ETNAI';
+const file = 'https://raw.githubusercontent.com/OfficeDev/templates-catalog/master/templates.json?token=ADD4CNYSDYJIRO6RPDF766K5FZDK2';
 
 $(function () {
     var dataJSON;
