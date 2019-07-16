@@ -1,7 +1,7 @@
 import inquirer = require('inquirer');
 import request = require('request');
 //const file = './templates.json';
-const file = 'https://raw.githubusercontent.com/OfficeDev/templates-catalog/master/templates.json?token=ADD4CN76YLBHAH2AOTVHTVC5G6L3C';
+const file = 'https://raw.githubusercontent.com/OfficeDev/templates-catalog/master/templates.json';
 const exec = require('child_process').execSync;
 
 let json: any;
