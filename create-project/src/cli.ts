@@ -12,7 +12,7 @@ import { runSearch } from './search';
  *  Full documentation at https://github.com/SBoudrias/Inquirer.js#readme
  * @return project info formatted to templates.json standard
  */
-async function runPublish(): Promise<any> {
+export async function runPublish(): Promise<any> {
   const defaultTemplate = 'MyOfficeTemplate';
   const questions = [];
 
@@ -70,9 +70,10 @@ async function runPublish(): Promise<any> {
  * @param args command line arguments:
  *     - create-project : needed to run the cli
  *     - search OR publish : (optional) how you would like to use the catalog
+ * @return action to take (search/publish) to index.ts to then run the necessary next step
  */
 export async function cli(args) {
-  let argument = "";
+  let argument = '';
 
   // Check if an optional command line argument is present
   if (args[2]) {
@@ -82,19 +83,18 @@ export async function cli(args) {
   // Check if the argument is one of the recognized options
   if (argument !== 'search' && argument !== 'publish') {
     // Set up the question to determine what the user wants to do with the catalog
-    let question: any =
-    {
+    let question: any = {
       type: 'list',
       name: 'action',
       message: 'What would you like to use the Community Templates Catalog for?',
-      choices: ['Search', "Publish"]
-    }
+      choices: ['Search', 'Publish']
+    };
     let action: any = await inquirer.prompt(question);
     argument = action.action;
   }
 
   if (argument.toLowerCase() === 'search') {
-    runSearch();
+    await runSearch();
   } else {
     // Prompt the user with questions about their project
     let answers = await runPublish();
@@ -103,6 +103,6 @@ export async function cli(args) {
     console.log(answers);
 
     // Write to templates.json
-    addProjectInfo(answers.template, answers.version, answers.author, answers.npm, answers.git, answers.tag);
+    await addProjectInfo(answers.template, answers.version, answers.author, answers.npm, answers.git, answers.tag);
   }
 }

@@ -4,7 +4,7 @@ const file = './templates.json';
 /**
  * Compare two strings alphabetically
  * @param a string 1
- * @param b string 2 
+ * @param b string 2
  */
 export function compareStrings(a, b) {
     a = a.toLowerCase();
@@ -14,24 +14,28 @@ export function compareStrings(a, b) {
 /**
  * Using the information collected from the user, find the spot in the templates.json
  * file to add the new project and insert it while maintaining alphabetical order
- * @param name 
- * @param npm 
- * @param repository 
- * @param tag 
+ * @param name
+ * @param npm
+ * @param repository
+ * @param tag
  */
 export function addProjectInfo(name, version, author, npm, repository, tag) {
-    let json: any = fs.readFileSync(file, function read(err, data) {
-        if (err) throw err;
-    });
+    let json: any;
+    try {
+        json = fs.readFileSync(file);
+    } catch (err) {
+        console.log('ERROR: File Not Found!');
+        console.log('There is no templates.json file in this directory to add your project to');
+        process.exit(-1);
+    }
     json = JSON.parse(json);
-    let project =
-    {
-        "name": name,
-        "version": version,
-        "author": author,
-        "npm": npm,
-        "repository": repository,
-        "tag": tag
+    let project = {
+        'name': name,
+        'version': version,
+        'author': author,
+        'npm': npm,
+        'repository': repository,
+        'tag': tag
     };
 
     //Add new project using Insertion Sort
@@ -45,7 +49,7 @@ export function addProjectInfo(name, version, author, npm, repository, tag) {
         }
     }
 
-    fs.writeFileSync(file, JSON.stringify(json, null, "\t"), function (err) {
-        if (err) throw err;
+    fs.writeFileSync(file, JSON.stringify(json, null, '\t'), (err) => {
+        if (err) { throw err; }
     });
 }
