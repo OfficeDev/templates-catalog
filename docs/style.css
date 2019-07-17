@@ -15,6 +15,7 @@ header {
     margin: 0;
     padding: 10px;
     text-align: center;
+    overflow-wrap: break-word;
   }
   
   sup {
@@ -62,3 +63,19 @@ header {
     padding:15px; 
     border-radius: 10px; 
   } 
+
+  .names {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 300px;
+    margin: auto;
+    text-align: center;
+    border-radius: 15px;
+  }
+
+  img {
+    max-width: 100px;
+    max-height: 100px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding-left: 10px;
+  }

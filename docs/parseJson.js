@@ -22,7 +22,8 @@ $(function () {
         var description = "<ul>Version: " + item.version + "</ul>";
         description += "<ul>Author: " + item.author + "</ul>";
         description += "<ul>NPM: " + '<a href="' + "https://npmjs.com/package/" + item.npm + '">' + item.npm + "</a></ul>";
-        description += "<ul>Repository: " + '<a href="' + "https://" + item.repository + '">' + item.repository + "</a></ul>";
+        let link = item.repository.length > 28 ? 'link' : item.repository;
+        description += "<ul>Repository: " + '<a href="' + "https://" + item.repository + '">' + link + "</a></ul>";
         description += "<ul>Tag: " + item.tag + "</ul>";
         listItemDesc.html(description);
         $('#dataList').append(listItem);
