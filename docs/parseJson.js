@@ -1,7 +1,7 @@
 const file = 'https://raw.githubusercontent.com/OfficeDev/templates-catalog/master/templates.json';
 
 $(function () {
-    var dataJSON;
+    let dataJSON;
 
     $.ajax({
         url: file,
@@ -9,17 +9,23 @@ $(function () {
         success: function (data) { dataJSON = data; }
     });
 
-    var dataObject = JSON.parse(dataJSON);
-    var listItemString = $('#listItem').html();
+    let dataObject = JSON.parse(dataJSON);
+    let listItemString = $('#listItem').html();
 
     dataObject.forEach(buildNewList);
 
     function buildNewList(item, index) {
-        var listItem = $('<li class="names">' + listItemString + '</li>');
-        var listItemTitle = $('.title', listItem);
+        let listItem = $('<li class="names">' + listItemString + '</li>');
+        let listItemTitle = $('.title', listItem);
         listItemTitle.html(item.name);
-        var listItemDesc = $('.description', listItem);
-        var description = "<ul>Version: " + item.version + "</ul>";
+
+        if (item.web && item.web !== '') {
+            let listItemImg = $('.image', listItem);
+            listItemImg[0].src = item.web;
+        }
+
+        let listItemDesc = $('.description', listItem);
+        let description = "<ul>Version: " + item.version + "</ul>";
         description += "<ul>Author: " + item.author + "</ul>";
         description += "<ul>NPM: " + '<a href="' + "https://npmjs.com/package/" + item.npm + '">' + item.npm + "</a></ul>";
         let link = item.repository.length > 28 ? 'link' : item.repository;

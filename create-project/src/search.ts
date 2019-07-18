@@ -21,7 +21,7 @@ export async function runSearch() {
     json = await searchWithPrompts();
 
     console.log('Here are your search results:');
-    console.table(json);
+    console.table(json, ['name', 'version', 'author', 'npm', 'repository', 'tag']);
 
     if (json.length > 0) {
         if (json.length > 1) {

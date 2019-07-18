@@ -90,6 +90,15 @@
 		"tag": "N/A"
 	},
 	{
+		"name": "Upload",
+		"version": "1.0.0",
+		"author": "ctc",
+		"npm": "",
+		"repository": "",
+		"tag": "Other",
+		"web": "https://cdn.dribbble.com/assets/icon-backtotop-1b04df73090f6b0f3192a3b71874ca3b3cc19dff16adc6cf365cd0c75897f6c0.png"
+	},
+	{
 		"name": "ViewJS",
 		"version": "0.0.1",
 		"author": "jsViewer",

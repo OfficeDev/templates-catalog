@@ -19,7 +19,7 @@ export function compareStrings(a, b) {
  * @param repository
  * @param tag
  */
-export function addProjectInfo(name, version, author, npm, repository, tag) {
+export function addProjectInfo(name, version, author, npm, repository, tag, web) {
     let json: any;
     try {
         json = fs.readFileSync(file);
@@ -35,7 +35,8 @@ export function addProjectInfo(name, version, author, npm, repository, tag) {
         'author': author,
         'npm': npm,
         'repository': repository,
-        'tag': tag
+        'tag': tag,
+        'web': web
     };
 
     //Add new project using Insertion Sort

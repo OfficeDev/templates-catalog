@@ -52,6 +52,11 @@ export async function runPublish(): Promise<any> {
     default: 'JavaScript'
   });
 
+  questions.push({
+    name: 'web',
+    message: 'Do you have a url with a a project logo or image?'
+  })
+
   const answers: any = await inquirer.prompt(questions);
 
   return {
@@ -61,6 +66,7 @@ export async function runPublish(): Promise<any> {
     npm: answers.npm,
     git: answers.git,
     tag: answers.tag,
+    web: answers.web
   };
 }
 
@@ -103,6 +109,6 @@ export async function cli(args) {
     console.log(answers);
 
     // Write to templates.json
-    await addProjectInfo(answers.template, answers.version, answers.author, answers.npm, answers.git, answers.tag);
+    await addProjectInfo(answers.template, answers.version, answers.author, answers.npm, answers.git, answers.tag, answers.web);
   }
 }
