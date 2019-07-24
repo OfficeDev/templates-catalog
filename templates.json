@@ -78,6 +78,15 @@
 		"tag": "NBA"
 	},
 	{
+		"name": "Rush",
+		"version": "5.10.3",
+		"author": "microsoft",
+		"npm": "@microsoft/rush",
+		"repository": "",
+		"tag": "JavaScript",
+		"web": "https://rushjs.io/images/rush-horiz.svg"
+	},
+	{
 		"name": "Test",
 		"npm": "@test/test",
 		"repository": "github.com/Test/1",
