@@ -3,6 +3,7 @@ import request = require('request');
 //const file = './templates.json';
 const file = 'https://raw.githubusercontent.com/OfficeDev/templates-catalog/master/templates.json';
 const exec = require('child_process').execSync;
+const fs = require('fs-extra');
 
 let json: any;
 
@@ -100,7 +101,7 @@ export async function installProject(results: any, projects: any) {
     let index = +choice.response.substr(0, choice.response.indexOf(':'));
 
     if (installType.response === 'NPM') {
-        installCommand = 'npm i ';
+        installCommand = 'npm i -g ';
         projectLink = results[index].npm;
     } else {
         installCommand = 'git clone https://';
@@ -108,7 +109,19 @@ export async function installProject(results: any, projects: any) {
     }
 
     try {
-        exec(installCommand + projectLink);
+        await exec(installCommand + projectLink);
+        //get newly npm installed files from global location and move to user profile
+        //allows user to get the src files instead of just the node_modules like in a normal npm install
+        if (installType.response === 'NPM') {
+            let sourceFolder = process.env.APPDATA + '/npm/node_modules/' + results[index].npm;
+            let destFolder = process.env.USERPROFILE + '/' + results[index].npm;
+            try {
+                await fs.move(sourceFolder, destFolder);
+                console.log('NPM package retrieved and can be found at: ' + destFolder);
+            } catch (err) {
+                console.log(err);
+            }
+        }
     } catch (err) {
         console.log('Error with Installation!');
     }
