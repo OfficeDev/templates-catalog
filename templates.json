@@ -6,6 +6,15 @@
 		"tag": "N/A"
 	},
 	{
+		"name": "Azure SDK",
+		"version": "2.3.1",
+		"author": "microsoft",
+		"npm": "azure",
+		"repository": "github.com/azure/azure-sdk-for-node",
+		"tag": "JavaScript",
+		"web": "https://lh3.googleusercontent.com/ihXIJOBFBNBA2DM86jZX1bO0jEbf70xZ4Ij2QvNExDNa3EccPzlArSayvK3kr4iev1c=s100-rw"
+	},
+	{
 		"name": "BetBuddy",
 		"npm": "@betbuddy/bet",
 		"repository": "github.com/BetBuddy",
