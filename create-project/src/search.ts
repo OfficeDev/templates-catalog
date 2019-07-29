@@ -84,7 +84,11 @@ export function search(json, input, param) {
     }
     return temp;
 }
-
+/**
+ * Returns the projects associated with what a user has searched for
+ * with each project numbered
+ * @param results projects currently filtered by search
+ */
 export function getInstallableProjects(results: any) {
     let projects = [];
     for (let i = 0; i < results.length; i++) {
@@ -92,7 +96,12 @@ export function getInstallableProjects(results: any) {
     }
     return projects;
 }
-
+/**
+ * Allows the user to choose a project to install and a
+ * service to install from.
+ * @param results 
+ * @param projects 
+ */
 export async function installProject(results: any, projects: any) {
     let choice: any = await inquirer.prompt({ type: 'list', name: 'response', 'message': 'Please choose a project', choices: projects });
     let installType: any = await inquirer.prompt({ type: 'list', name: 'response', 'message': 'Choose which service to retrieve the project from', choices: ['NPM', 'GitHub'] });
