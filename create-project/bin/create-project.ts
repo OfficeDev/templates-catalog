@@ -1,3 +1,3 @@
-#!/usr/bin/env ts-node
+#!/usr/bin/env node
 
 require('../src/cli').cli(process.argv);

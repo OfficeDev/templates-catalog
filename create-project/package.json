@@ -10,6 +10,7 @@
     "access": "public"
   },
   "scripts": {
+    "build": "tsc -p .",
     "test": "mocha --timeout 0 -r ts-node/register ./test/**.ts"
   },
   "keywords": [
