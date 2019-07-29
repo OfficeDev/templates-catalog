@@ -8,6 +8,7 @@ Run these commands:
 git clone https://github.com/OfficeDev/templates-catalog.git
 cd create-project
 npm install
+npm run build
 npm link
 ```
 
