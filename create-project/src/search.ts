@@ -30,7 +30,7 @@ export async function runSearch() {
             if (further.response === 'Yes') {
                 json = await searchWithPrompts();
                 console.log('Here are your search results:');
-                console.table(json);
+                console.table(json, ['name', 'version', 'author', 'npm', 'repository', 'tag']);
             }
         }
         let install: any = await inquirer.prompt({ type: 'list', name: 'response', 'message': 'Would you like to install/clone one of these projects?', choices: ['Yes', 'No'] });
