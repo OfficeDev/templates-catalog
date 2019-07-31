@@ -1,11 +1,5 @@
 [
 	{
-		"name": "abc",
-		"npm": "@a/bc",
-		"repository": "",
-		"tag": "N/A"
-	},
-	{
 		"name": "Azure SDK",
 		"version": "2.3.1",
 		"author": "microsoft",
@@ -16,33 +10,12 @@
 	},
 	{
 		"name": "BetBuddy",
-		"npm": "@betbuddy/bet",
-		"repository": "github.com/BetBuddy",
-		"tag": "Android"
-	},
-	{
-		"name": "c",
-		"npm": "c/c",
-		"repository": "",
-		"tag": "c#"
-	},
-	{
-		"name": "DBZ",
-		"npm": "@db/z",
-		"repository": "",
-		"tag": "TypeScript"
-	},
-	{
-		"name": "drake",
-		"npm": "@toronto/raptors",
-		"repository": "github.com/6",
-		"tag": "NBA"
-	},
-	{
-		"name": "dsam",
-		"npm": "@dsamdani/dsam",
-		"repository": "",
-		"tag": "test"
+		"version": "0.0.1",
+		"author": "betbuddy",
+		"npm": "",
+		"repository": "github.com/bet-buddy/BetBuddy",
+		"tag": "Other",
+		"web": "https://avatars3.githubusercontent.com/u/47427811?s=400&u=31b049a261fbc3447bd0ff98410521d42434df78&v=4"
 	},
 	{
 		"name": "Dubs",
@@ -61,13 +34,9 @@
 		"tag": "React"
 	},
 	{
-		"name": "MyOfficeTemplate",
-		"npm": "",
-		"repository": "",
-		"tag": "N/A"
-	},
-	{
 		"name": "Office-Addin-TaskPane-JS",
+		"version": "",
+		"author": "office",
 		"npm": "",
 		"repository": "github.com/OfficeDev/Office-Addin-TaskPane-JS",
 		"tag": "Office-Addin"
@@ -81,12 +50,6 @@
 		"tag": "React"
 	},
 	{
-		"name": "Raptors",
-		"npm": "@Raptors/Dinos",
-		"repository": "github.com/WeTheNorth/Raptor",
-		"tag": "NBA"
-	},
-	{
 		"name": "Rush",
 		"version": "5.10.3",
 		"author": "microsoft",
@@ -94,18 +57,6 @@
 		"repository": "",
 		"tag": "JavaScript",
 		"web": "https://rushjs.io/images/rush-horiz.svg"
-	},
-	{
-		"name": "Test",
-		"npm": "@test/test",
-		"repository": "github.com/Test/1",
-		"tag": "N/A"
-	},
-	{
-		"name": "tester",
-		"npm": "@tester/tester123",
-		"repository": "github.com/tester",
-		"tag": "N/A"
 	},
 	{
 		"name": "Upload",
@@ -125,23 +76,11 @@
 		"tag": "JavaScript"
 	},
 	{
-		"name": "WorldCup",
-		"npm": "@world/cup",
-		"repository": "github.com/WC/world",
-		"tag": "C#"
-	},
-	{
 		"name": "Yo-Office",
 		"version": "6.0.0",
 		"author": "office",
 		"npm": "generator-office",
 		"repository": "github.com/OfficeDev/generator-office",
 		"tag": "TypeScript"
-	},
-	{
-		"name": "zoo",
-		"npm": "zbo",
-		"repository": "z",
-		"tag": "java"
 	}
 ]
