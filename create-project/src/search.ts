@@ -23,9 +23,12 @@ export async function runSearch() {
     json = json.map(j => ({'name':j.name, 'version':j.version, 'author':j.author, 'npm':j.npm, 'repository':j.repository, 'tag':j.tag}))
 
     console.log('Here are your search results:');
+
+    //hack to allow console.table to display results on Node 8
     if (process.version[1] === '8') {
         delete console.table;
         require('console.table');
+        console.log("We recommend using Node version 10+ for the best view of the catalog");
     }
     console.table(json);
 
@@ -127,6 +130,8 @@ export async function installProject(results: any, projects: any) {
         //get newly npm installed files from global location and move to user profile
         //allows user to get the src files instead of just the node_modules like in a normal npm install
         if (installType.response === 'NPM') {
+            //TODO - node 8 has a different source folder, need to accomodate that
+            //currently npm installation wont work on node version 8
             let sourceFolder = process.env.APPDATA + '/npm/node_modules/' + results[index].npm;
             let destFolder = process.env.USERPROFILE + '/' + results[index].npm;
             try {
