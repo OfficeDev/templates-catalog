@@ -20,9 +20,14 @@ export async function runSearch() {
     });
 
     json = await searchWithPrompts();
+    json = json.map(j => ({'name':j.name, 'version':j.version, 'author':j.author, 'npm':j.npm, 'repository':j.repository, 'tag':j.tag}))
 
     console.log('Here are your search results:');
-    console.table(json, ['name', 'version', 'author', 'npm', 'repository', 'tag']);
+    if (process.version[1] === '8') {
+        delete console.table;
+        require('console.table');
+    }
+    console.table(json);
 
     if (json.length > 0) {
         if (json.length > 1) {
@@ -30,7 +35,7 @@ export async function runSearch() {
             if (further.response === 'Yes') {
                 json = await searchWithPrompts();
                 console.log('Here are your search results:');
-                console.table(json, ['name', 'version', 'author', 'npm', 'repository', 'tag']);
+                console.table(json);
             }
         }
         let install: any = await inquirer.prompt({ type: 'list', name: 'response', 'message': 'Would you like to install/clone one of these projects?', choices: ['Yes', 'No'] });
