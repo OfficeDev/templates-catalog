@@ -20,7 +20,7 @@ export async function runSearch() {
     });
 
     json = await searchWithPrompts();
-    json = json.map(j => ({'name':j.name, 'version':j.version, 'author':j.author, 'npm':j.npm, 'repository':j.repository, 'tag':j.tag}))
+    json = json.map(j => ({'name': j.name, 'version': j.version, 'author': j.author, 'npm': j.npm, 'repository': j.repository, 'tag': j.tag}));
 
     console.log('Here are your search results:');
 
@@ -28,7 +28,7 @@ export async function runSearch() {
     if (process.version[1] === '8') {
         delete console.table;
         require('console.table');
-        console.log("We recommend using Node version 10+ for the best view of the catalog");
+        console.log('We recommend using Node version 10+ for the best view of the catalog');
     }
     console.table(json);
 
@@ -55,7 +55,7 @@ export async function searchWithPrompts() {
             {
                 type: 'list',
                 name: 'param',
-                message: 'What paramter would you like to search by?',
+                message: 'What parameter would you like to search by?',
                 choices: ['Name', 'Author', 'NPM', 'Repository', 'Tag']
             },
             {
@@ -126,6 +126,7 @@ export async function installProject(results: any, projects: any) {
     }
 
     try {
+        console.log("Your project is being installed now...");
         await exec(installCommand + projectLink);
         //get newly npm installed files from global location and move to user profile
         //allows user to get the src files instead of just the node_modules like in a normal npm install

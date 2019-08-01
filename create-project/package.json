@@ -1,7 +1,11 @@
 {
   "name": "create-project",
   "version": "1.0.0",
-  "description": "",
+  "description": "Command line tool to access the Community Templates Catalog for Office Add-Ins",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OfficeDev/templates-catalog"
+  },
   "main": "src/index.js",
   "bin": {
     "create-project": "bin/create-project.ts"
